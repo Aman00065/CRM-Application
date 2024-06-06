@@ -1,15 +1,12 @@
-require('./db')
-const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-var postMessageRoutes = require('./controllers/postMessageController')
+ReactDOM.render(<App />, document.getElementById('root'));
 
-
-var app = express()
-app.use(bodyParser.json())
-app.use(cors({origin:'http://localhost:3000'}))
-app.listen(4000,()=>console.log('Server started at : 4000'))
-
-
-app.use('/postMessages',postMessageRoutes)
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
